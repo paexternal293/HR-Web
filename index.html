@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureKudos - Employee Recognition Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <i class="fas fa-trophy"></i>
+                <h1>SecureKudos</h1>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Dashboard</a>
+                <a href="recognition-wall.html" class="nav-link">Recognition Wall</a>
+                <a href="submit-kudos.html" class="nav-link">Submit Kudos</a>
+            </nav>
+            <div class="user-section">
+                <span class="user-name">Jane Doe (HR Admin)</span>
+                <img src="https://via.placeholder.com/32/4a90e2/ffffff?text=JD" alt="User" class="user-avatar">
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="dashboard-container">
+            <section class="welcome-section">
+                <h2>Welcome to SecureKudos</h2>
+                <p>Your internal employee recognition platform. Celebrate achievements and build team morale.</p>
+            </section>
+
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Total Kudos</h3>
+                        <span class="stat-number">2,847</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Active Users</h3>
+                        <span class="stat-number">156</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-week"></i>
+                        <h3>This Week</h3>
+                        <span class="stat-number">23</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3>Top Contributors</h3>
+                        <span class="stat-number">12</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="recent-activity">
+                <h3>Recent Activity</h3>
+                <div class="activity-feed">
+                    <div class="activity-item">
+                        <i class="fas fa-trophy"></i>
+                        <div class="activity-content">
+                            <p><strong>Sarah Chen</strong> received kudos for "Exceptional Client Support"</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-plus-circle"></i>
+                        <div class="activity-content">
+                            <p><strong>Mike Rodriguez</strong> submitted new recognition</p>
+                            <span class="activity-time">4 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-award"></i>
+                        <div class="activity-content">
+                            <p><strong>Team Alpha</strong> achieved monthly milestone</p>
+                            <span class="activity-time">1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Security Context Panel -->
+            <section class="security-info">
+                <h3><i class="fas fa-shield-alt"></i> Security Context</h3>
+                <div class="security-details">
+                    <p><strong>Session Token:</strong> <code id="session-token">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW5lLmRvZSIsInJvbGUiOiJociIsImV4cCI6MTczNDYxNDQwMH0.abc123</code></p>
+                    <p><strong>CSRF Token:</strong> <code id="csrf-token">a7f3d2e1-9b8c-4567-8901-234567890abc</code></p>
+                    <p><strong>API Endpoint:</strong> <code>POST /api/submit-kudos</code></p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
