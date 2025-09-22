@@ -1,0 +1,33 @@
+instruction: |
+  You are working inside /workspace on a minimal Debian environment. Security monitoring flagged
+  several risky sessions in the SecureKudos HR recognition platform. The raw event log lives at
+  /workspace/logs/kudos-access.log and each line uses pipe-delimited key/value pairs in the form:
+
+    2024-12-01T10:12:33Z|user=U402|role=admin|action=LOGIN|result=SUCCESS|ip=203.0.113.45|mfa=true
+
+  The security team needs a human-readable triage report saved to /workspace/reports/critical-access-report.txt
+  with two sections:
+
+    [external_admin_logins]
+    <ip>|user=<id>|timestamp=<ISO8601>
+
+    [excessive_failed_logins]
+    <user>|failed_attempts=<count>
+
+  Requirements:
+    • Treat corporate network IPs as any address starting with 10., any 172.16.0.0/12 range (172.16.-172.31.),
+      and any 192.168. prefix. Admin logins (action=LOGIN, result=SUCCESS, role=admin) from any other IP must be
+      emitted in the order they appear in the log under [external_admin_logins].
+    • Count failed login attempts (action=LOGIN, result=FAILED) per user. Emit only the users with three or more
+      failures under [excessive_failed_logins], sorted by user ID.
+    • Ensure the output file contains both section headers, a blank line between the sections, and no extra
+      commentary beyond the expected lines.
+    • The reports directory may not exist initially; create it if needed. Do not modify the source log file.
+
+author_email: hiring@afterquery.com
+difficulty: medium
+tags:
+  - bash
+  - log-analysis
+  - security
+display_name: SecureKudos Access Triage

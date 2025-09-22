@@ -1,0 +1,13 @@
+2024-12-01T08:15:33Z|user=U104|role=employee|action=LOGIN|result=SUCCESS|ip=10.0.5.14|mfa=true
+2024-12-01T08:17:41Z|user=U204|role=employee|action=LOGIN|result=FAILED|ip=172.16.3.27|mfa=false
+2024-12-01T08:18:22Z|user=U204|role=employee|action=LOGIN|result=FAILED|ip=172.16.3.27|mfa=false
+2024-12-01T08:19:45Z|user=U204|role=employee|action=LOGIN|result=FAILED|ip=172.16.3.27|mfa=false
+2024-12-01T09:02:11Z|user=U305|role=contractor|action=LOGIN|result=FAILED|ip=203.0.113.51|mfa=false
+2024-12-01T09:05:18Z|user=U305|role=contractor|action=LOGIN|result=FAILED|ip=203.0.113.51|mfa=false
+2024-12-01T09:07:03Z|user=U305|role=contractor|action=LOGIN|result=FAILED|ip=203.0.113.51|mfa=false
+2024-12-01T09:08:47Z|user=U305|role=contractor|action=LOGIN|result=FAILED|ip=203.0.113.51|mfa=false
+2024-12-01T10:12:33Z|user=U402|role=admin|action=LOGIN|result=SUCCESS|ip=203.0.113.45|mfa=true
+2024-12-01T10:15:01Z|user=U110|role=employee|action=PASSWORD_RESET|result=SUCCESS|ip=10.0.5.21|mfa=true
+2024-12-01T12:43:11Z|user=U509|role=admin|action=LOGIN|result=SUCCESS|ip=198.51.100.24|mfa=false
+2024-12-01T13:01:05Z|user=U204|role=employee|action=PASSWORD_RESET|result=SUCCESS|ip=172.16.3.27|mfa=true
+2024-12-01T14:22:17Z|user=U602|role=employee|action=LOGIN|result=SUCCESS|ip=192.168.10.10|mfa=true
